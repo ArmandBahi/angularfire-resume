@@ -1,13 +1,29 @@
 <nav class="top-nav">
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">My-resume</a>
+    <a routerLink="/home" class="brand-logo">My-resume</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a class="navbar-item" routerLink="/login">
-        Login
-      </a></li>
-      <li><a class="navbar-item" routerLink="/notes">
-        Notes
-      </a></li>
+      <li *ngIf="auth.user | async; then authenticated else guest">
+
+      </li>
     </ul>
   </div>
 </nav>
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+  <li>
+    <a class="navbar-item" routerLink="/profile" routerLinkActive="selected">
+      Sign in
+    </a>
+  </li>
+</ng-template>
+
+
+<!-- User logged in -->
+<ng-template #authenticated>
+  <li>
+    <a class="navbar-item" routerLink="/profile" routerLinkActive="selected">
+      Profile
+    </a>
+  </li>
+</ng-template>

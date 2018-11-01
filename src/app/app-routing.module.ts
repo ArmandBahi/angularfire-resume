@@ -7,8 +7,9 @@ import { NotesComponent } from './pages/notes/notes.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'login', component: UserProfileComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomePageComponent },
+  { path: 'profile', component: UserProfileComponent },
   { path: 'notes', component: NotesComponent }
 ];
 
