@@ -23,10 +23,11 @@ import { NotesComponent } from './notes/notes.component';
     FormsModule,
     AppRoutingModule,
     MaterializeModule,
-    AngularFireModule.initializeApp(environment.firebase, 'my-resume'),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebase, 'my-resume'),
+    AngularFirestoreModule.enablePersistence()
   ],
   declarations: [ AppComponent, NotesListComponent, NotesComponent ],
   bootstrap: [ AppComponent ]

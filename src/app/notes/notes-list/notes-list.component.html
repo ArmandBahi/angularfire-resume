@@ -1,5 +1,6 @@
 
 <h2>Notes: </h2>
+
 <div *ngFor="let note of notes | async">
   <div class="row">
     <div class="input-field col s4">
@@ -11,7 +12,7 @@
       <label for="note_hearts" class="active">Hearts</label>
     </div>
     <div class="input-field col s4">
-      <button class="btn waves-effect waves-light" type="submit" name="action" (click)="updateNote(note)">Submit
+      <button class="btn waves-effect waves-light" type="submit" name="action" (click)="updateNote(note)">Edit
         <i class="material-icons right">send</i>
       </button>
     </div>

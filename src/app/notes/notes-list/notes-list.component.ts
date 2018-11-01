@@ -19,10 +19,15 @@ export class NotesListComponent implements OnInit {
   notesCollection: AngularFirestoreColleciton<Note>;
   notesDoc: AngularFirestoreDoc<Note>;
   notes: Observable<Note[]>;
-  snapshot: any;
+  newNote: object;
 
   constructor(private afs: AngularFirestore) { }
 
+
+  /**
+   * ngOnInit - component init
+   *      
+   */
   ngOnInit() {
     this.notesCollection = this.afs.collection<Note>('notes');
     this.notes = this.notesCollection.snapshotChanges().pipe(
@@ -32,16 +37,23 @@ export class NotesListComponent implements OnInit {
         return { id, ...data };
       }))
     );
+    this.newNote = {};
   }
 
+
+  /**
+   * updateNote - Update an existing note
+   *
+   * @param  {object} oNote
+   */
   updateNote(oNote) {
-
     let noteDoc = this.afs.doc('notes/' + oNote.id);
-
-    noteDoc.update(oNote);
-
-    console.log('oNote', oNote);
-    console.log('noteDoc', noteDoc);
+    noteDoc.update(oNote).then(function() {
+        console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });;
   }
 
 }
