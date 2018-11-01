@@ -1,3 +1,39 @@
-<p>
-  skills works!
-</p>
+
+<h2>Skills: </h2>
+
+<div class="row">
+  <div class="input-field col s4">
+    <input id="skill_content" type="text" class="validate" [(ngModel)]="newSkill.name">
+    <label for="skill_content" class="active">Name</label>
+  </div>
+  <div class="input-field col s4">
+    <input id="skill_hearts" type="number" class="validate" [(ngModel)]="newSkill.rate">
+    <label for="skill_hearts" class="active">Rate</label>
+  </div>
+  <div class="input-field col s4">
+    <button class="btn waves-effect waves-light" type="submit" name="action" (click)="addSkill(newSkill)">New skill
+      <i class="material-icons right">add_box</i>
+    </button>
+  </div>
+</div>
+
+<div *ngFor="let skill of skills | async">
+  <div class="row">
+    <div class="input-field col s4">
+      <input id="skill_content" type="text" class="validate" [(ngModel)]="skill.name">
+      <label for="skill_content" class="active">Name</label>
+    </div>
+    <div class="input-field col s4">
+      <input id="skill_hearts" type="number" class="validate" [(ngModel)]="skill.rate">
+      <label for="skill_hearts" class="active">Rate</label>
+    </div>
+    <div class="input-field col s4">
+      <button class="btn waves-effect waves-light btn-small" type="submit" name="action" (click)="deleteSkill(skill)">
+        <i class="material-icons center">backspace</i>
+      </button>
+      <button class="btn waves-effect waves-light btn-small" type="submit" name="action" (click)="updateSkill(skill)">Edit
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
+</div>
