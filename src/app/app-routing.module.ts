@@ -3,9 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './core/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { NotesComponent } from './notes/notes.component';
-import { SsrPageComponent } from './ui/ssr-page/ssr-page.component';
-
+import { NotesComponent } from './pages/notes/notes.component';
 
 const routes: Routes = [
   { path: '', component: UserProfileComponent },

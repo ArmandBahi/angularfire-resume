@@ -15,8 +15,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { NotesListComponent } from './notes/notes-list/notes-list.component';
-import { NotesComponent } from './notes/notes.component';
+import { NotesComponent } from './pages/notes/notes.component';
+import { NotesListComponent } from './pages/notes/notes-list/notes-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
