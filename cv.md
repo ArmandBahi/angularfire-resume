@@ -1,5 +1,22 @@
 
-# CV
+# Skills
+
+JS
+PHP
+Python
+PostreSQL & PostGIS
+NodeJS & NPM
+Materialize
+Bootstrap
+AngularJS
+Firebase
+Meteor
+Git
+GitLab
+Jenkins
+AWS
+
+# Poste actuel
 
 ## Responsable des développements WEB
 
@@ -34,3 +51,5 @@
 	- Bugbounty au FME World Tour 2018 (Paris)
 	- vMap au FME World Tour 2017 (Lyon)
 	- vMap un nouveau web-sig Foss4G 2016 (Paris)
+
+# Experience
