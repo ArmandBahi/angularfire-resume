@@ -1,8 +1,19 @@
 
 <h2>Notes: </h2>
 <div *ngFor="let note of notes | async">
-    <div class="basic-note">
-        <h3>{{ note.content }}</h3>
-        <p>This note has been hearted {{ note.hearts || 0 }} times.</p>
+  <div class="row">
+    <div class="input-field col s4">
+      <input id="note_content" type="text" class="validate" [(ngModel)]="note.content">
+      <label for="note_content" class="active">Content</label>
     </div>
+    <div class="input-field col s4">
+      <input id="note_hearts" type="number" class="validate" [(ngModel)]="note.hearts">
+      <label for="note_hearts" class="active">Hearts</label>
+    </div>
+    <div class="input-field col s4">
+      <button class="btn waves-effect waves-light" type="submit" name="action" (click)="updateNote(note)">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
 </div>
