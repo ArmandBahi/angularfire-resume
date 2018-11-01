@@ -1,0 +1,8 @@
+
+<h2>Notes: </h2>
+<div *ngFor="let note of notes | async">
+    <div class="basic-note">
+        <h3>{{ note.content }}</h3>
+        <p>This note has been hearted {{ note.hearts || 0 }} times.</p>
+    </div>
+</div>

@@ -10,6 +10,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { NotesListComponent } from './notes/notes-list/notes-list.component';
+import { NotesComponent } from './notes/notes.component';
 
 @NgModule({
   imports: [
@@ -20,7 +22,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     AngularFireAuthModule,
     AngularFireStorageModule
   ],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent, NotesListComponent, NotesComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
