@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 
+// Materialize
+import { MaterializeModule } from 'angular2-materialize';
+
 // AngularFire Modules
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -17,6 +20,7 @@ import { NotesComponent } from './notes/notes.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MaterializeModule,
     AngularFireModule.initializeApp(environment.firebase, 'my-resume'),
     AngularFirestoreModule,
     AngularFireAuthModule,
