@@ -15,12 +15,15 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+
+// Custom components
 import { NotesComponent } from './pages/notes/notes.component';
 import { NotesListComponent } from './pages/notes/notes-list/notes-list.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './navbar/sidebar/sidebar.component';
+import { TopbarComponent } from './navbar/topbar/topbar.component';
 
 @NgModule({
   imports: [
@@ -35,7 +38,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AngularFireModule.initializeApp(environment.firebase, 'my-resume'),
     AngularFirestoreModule.enablePersistence()
   ],
-  declarations: [ AppComponent, NotesListComponent, NotesComponent, UserProfileComponent, NavbarComponent, HomePageComponent, SidebarComponent ],
+  declarations: [ AppComponent, NotesListComponent, NotesComponent, UserProfileComponent, NavbarComponent, HomePageComponent, SidebarComponent, TopbarComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
