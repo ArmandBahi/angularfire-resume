@@ -38,6 +38,8 @@ export class NotesListComponent implements OnInit {
       }))
     );
     this.newNote = {};
+
+    console.log('this.notesCollection: ', this.notesCollection);
   }
 
   /**
@@ -47,7 +49,7 @@ export class NotesListComponent implements OnInit {
    */
   addNote(newNote) {
     this.notesCollection.add(newNote).then(function() {
-        console.log("Document successfully written!");
+        console.log("Document successfully added!");
         newNote.content = "";
         newNote.hearts = "";
     })
@@ -55,7 +57,6 @@ export class NotesListComponent implements OnInit {
         console.error("Error writing document: ", error);
     });
   }
-
 
   /**
    * updateNote - Update an existing note
@@ -65,7 +66,22 @@ export class NotesListComponent implements OnInit {
   updateNote(oNote) {
     let noteDoc = this.afs.doc('notes/' + oNote.id);
     noteDoc.update(oNote).then(function() {
-        console.log("Document successfully written!");
+        console.log("Document successfully updated!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
+  }
+
+  /**
+   * deleteNote - Update an existing note
+   *
+   * @param  {object} oNote
+   */
+  deleteNote(oNote) {
+    let noteDoc = this.afs.doc('notes/' + oNote.id);
+    noteDoc.delete().then(function() {
+        console.log("Document successfully deleted!");
     })
     .catch(function(error) {
         console.error("Error writing document: ", error);
