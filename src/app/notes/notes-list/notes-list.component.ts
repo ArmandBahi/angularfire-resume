@@ -26,7 +26,7 @@ export class NotesListComponent implements OnInit {
 
   /**
    * ngOnInit - component init
-   *      
+   *
    */
   ngOnInit() {
     this.notesCollection = this.afs.collection<Note>('notes');
@@ -38,6 +38,22 @@ export class NotesListComponent implements OnInit {
       }))
     );
     this.newNote = {};
+  }
+
+  /**
+   * addNote - Add a new note
+   *
+   * @param  {object} newNote
+   */
+  addNote(newNote) {
+    this.notesCollection.add(newNote).then(function() {
+        console.log("Document successfully written!");
+        newNote.content = "";
+        newNote.hearts = "";
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
   }
 
 
@@ -53,7 +69,7 @@ export class NotesListComponent implements OnInit {
     })
     .catch(function(error) {
         console.error("Error writing document: ", error);
-    });;
+    });
   }
 
 }
