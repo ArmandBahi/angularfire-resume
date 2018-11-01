@@ -24,6 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SidebarComponent } from './navbar/sidebar/sidebar.component';
 import { TopbarComponent } from './navbar/topbar/topbar.component';
+import { SkillsComponent } from './pages/skills/skills.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,7 @@ import { TopbarComponent } from './navbar/topbar/topbar.component';
     AngularFireModule.initializeApp(environment.firebase, 'my-resume'),
     AngularFirestoreModule.enablePersistence()
   ],
-  declarations: [ AppComponent, NotesListComponent, NotesComponent, UserProfileComponent, NavbarComponent, HomePageComponent, SidebarComponent, TopbarComponent ],
+  declarations: [ AppComponent, NotesListComponent, NotesComponent, UserProfileComponent, NavbarComponent, HomePageComponent, SidebarComponent, TopbarComponent, SkillsComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
