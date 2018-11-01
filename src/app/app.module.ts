@@ -18,6 +18,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NotesListComponent } from './notes/notes-list/notes-list.component';
 import { NotesComponent } from './notes/notes.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AngularFireModule.initializeApp(environment.firebase, 'my-resume'),
     AngularFirestoreModule.enablePersistence()
   ],
-  declarations: [ AppComponent, NotesListComponent, NotesComponent, UserProfileComponent ],
+  declarations: [ AppComponent, NotesListComponent, NotesComponent, UserProfileComponent, NavbarComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
