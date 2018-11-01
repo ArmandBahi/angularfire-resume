@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class NotesListComponent implements OnInit {
 
-  items: Observable<any[]>;
+  notes: Observable<any[]>;
 
   constructor(db: AngularFirestore) {
     this.notes = db.collection('notes').valueChanges();
