@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreColleciton } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Skill {
   name: string;
   rate: number;
-  ?id: string;
+  id?: string;
 }
 
 @Component({
@@ -16,8 +16,8 @@ export interface Skill {
 })
 export class SkillsComponent implements OnInit {
 
-  skillsCollection: AngularFirestoreColleciton<Skill>;
-  skillsDoc: AngularFirestoreDoc<Skill>;
+  skillsCollection: AngularFirestoreCollection<Skill>;
+  skillsDoc: AngularFirestoreDocument<Skill>;
   skills: Observable<Skill[]>;
   newSkill: object;
 

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreColleciton } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Note {
   content: string;
   hearts: number;
-  ?id: string;
+  id?: string;
 }
 
 @Component({
@@ -16,8 +16,8 @@ export interface Note {
 })
 export class NotesListComponent implements OnInit {
 
-  notesCollection: AngularFirestoreColleciton<Note>;
-  notesDoc: AngularFirestoreDoc<Note>;
+  notesCollection: AngularFirestoreCollection<Note>;
+  notesDoc: AngularFirestoreDocument<Note>;
   notes: Observable<Note[]>;
   newNote: object;
 
