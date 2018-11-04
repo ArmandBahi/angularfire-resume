@@ -38,8 +38,6 @@ export class SkillsComponent implements OnInit {
       }))
     );
     this.newSkill = {};
-
-    console.log('this.skillsCollection: ', this.skillsCollection);
   }
 
   /**
@@ -49,11 +47,12 @@ export class SkillsComponent implements OnInit {
    */
   addSkill(newSkill) {
     this.skillsCollection.add(newSkill).then(function() {
-        console.log("Document successfully added!");
+        Materialize.toast('Skill successfully added', 3000, 'green');
         newSkill.name = "";
         newSkill.rate = "";
     })
     .catch(function(error) {
+        Materialize.toast('Error when adding skill', 3000, 'red');
         console.error("Error writing document: ", error);
     });
   }
@@ -66,9 +65,10 @@ export class SkillsComponent implements OnInit {
   updateSkill(oSkill) {
     let skillDoc = this.afs.doc('skills/' + oSkill.id);
     skillDoc.update(oSkill).then(function() {
-        console.log("Document successfully updated!");
+        Materialize.toast('Skill successfully updated', 3000, 'green');
     })
     .catch(function(error) {
+        Materialize.toast('Error when updating skill', 3000, 'red');
         console.error("Error writing document: ", error);
     });
   }
@@ -81,9 +81,10 @@ export class SkillsComponent implements OnInit {
   deleteSkill(oSkill) {
     let skillDoc = this.afs.doc('skills/' + oSkill.id);
     skillDoc.delete().then(function() {
-        console.log("Document successfully deleted!");
+        Materialize.toast('Skill successfully deleted', 3000, 'green');
     })
     .catch(function(error) {
+        Materialize.toast('Error when deleting skill', 3000, 'red');
         console.error("Error writing document: ", error);
     });
   }

@@ -49,11 +49,12 @@ export class NotesListComponent implements OnInit {
    */
   addNote(newNote) {
     this.notesCollection.add(newNote).then(function() {
-        console.log("Document successfully added!");
+        Materialize.toast('Note successfully added', 3000, 'green');
         newNote.content = "";
         newNote.hearts = "";
     })
     .catch(function(error) {
+        Materialize.toast('Error when adding note', 3000, 'red');
         console.error("Error writing document: ", error);
     });
   }
@@ -66,9 +67,10 @@ export class NotesListComponent implements OnInit {
   updateNote(oNote) {
     let noteDoc = this.afs.doc('notes/' + oNote.id);
     noteDoc.update(oNote).then(function() {
-        console.log("Document successfully updated!");
+        Materialize.toast('Note successfully updated', 3000, 'green');
     })
     .catch(function(error) {
+        Materialize.toast('Error when updating note', 3000, 'red');
         console.error("Error writing document: ", error);
     });
   }
@@ -81,9 +83,10 @@ export class NotesListComponent implements OnInit {
   deleteNote(oNote) {
     let noteDoc = this.afs.doc('notes/' + oNote.id);
     noteDoc.delete().then(function() {
-        console.log("Document successfully deleted!");
+        Materialize.toast('Note successfully deleted', 3000, 'green');
     })
     .catch(function(error) {
+        Materialize.toast('Error when deleting note', 3000, 'red');
         console.error("Error writing document: ", error);
     });
   }
