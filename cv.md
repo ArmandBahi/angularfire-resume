@@ -1,20 +1,20 @@
 
 # Skills
 
-JS
-PHP
-Python
-PostreSQL & PostGIS
-NodeJS & NPM
-Materialize
-Bootstrap
-AngularJS
-Firebase
-Meteor
-Git
-GitLab
-Jenkins
-AWS
+- JS
+- PHP
+- Python
+- PostreSQL & PostGIS
+- NodeJS & NPM
+- Materialize
+- Bootstrap
+- AngularJS
+- Firebase
+- Meteor
+- Git
+- GitLab
+- Jenkins
+- AWS
 
 # Poste actuel
 
