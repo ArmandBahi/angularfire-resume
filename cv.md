@@ -36,6 +36,7 @@
 
 - vMap
 - Vitis
+- VAI
 
 ## Formation / conférences
 
