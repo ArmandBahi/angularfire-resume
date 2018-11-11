@@ -21,6 +21,8 @@ export class SkillsComponent implements OnInit {
   skillsDoc: AngularFirestoreDocument<Skill>;
   skills: Observable<Skill[]>;
   newSkill: object;
+  showEditBtn: array;
+  showEditForm: array;
 
   constructor(private afs: AngularFirestore) { }
 
@@ -39,6 +41,8 @@ export class SkillsComponent implements OnInit {
       }))
     );
     this.newSkill = {};
+    this.showEditBtn = [];
+    this.showEditForm = [];
   }
 
   /**
