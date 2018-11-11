@@ -23,6 +23,8 @@ export class SkillsComponent implements OnInit {
   newSkill: object;
   showEditBtn: array;
   showEditForm: array;
+  showNewBtn: boolean;
+  showNewForm: boolean;
 
   constructor(private afs: AngularFirestore) { }
 
@@ -43,6 +45,8 @@ export class SkillsComponent implements OnInit {
     this.newSkill = {};
     this.showEditBtn = [];
     this.showEditForm = [];
+    this.showNewBtn = false;
+    this.showNewForm = false;
   }
 
   /**

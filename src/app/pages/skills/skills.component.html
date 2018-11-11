@@ -1,61 +1,79 @@
 
 <h2>Skills: </h2>
 
-<div class="row">
-    <div class="input-field col s4">
-        <input id="skill_content" type="text" class="validate" [(ngModel)]="newSkill.name">
-        <label for="skill_content" class="active">Name</label>
+<div (mouseenter)="showNewBtn=true" (mouseleave)="showNewBtn=false" style="padding-bottom: 50px;">
+
+    <div *ngFor="let skill of skills| async; index as i">
+
+        <!-- Skills display -->
+        <div class="row" (mouseenter)="showEditBtn[i]=true" (mouseleave)="showEditBtn[i]=false" [ngClass]="{'hide':showEditForm[i]==true}">
+            <div class="col s8">
+                <div class="row">
+                    <h6 class="col s10">{{skill.name}}</h6>
+                    <h6 class="col s2 right-align">{{skill.rate}}%</h6>
+                </div>
+                <div class="progress">
+                    <div class="determinate green" [style.width.%]="skill.rate"></div>
+                </div>
+            </div>
+            <div class="col s2" style="margin-top: 12px">
+                <button class="btn waves-effect waves-light btn-floating" [ngClass]="{'hide':showEditBtn[i]!=true}" (click)="showEditForm[i]=true">
+                    <i class="material-icons right">edit</i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Skills edit form -->
+        <div class="row" [ngClass]="{'hide':showEditForm[i]!=true}">
+            <div class="input-field col s4">
+                <input id="skill_content" type="text" class="validate" [(ngModel)]="skill.name">
+                <label for="skill_content" class="active">Name</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="skill_hearts" type="number" class="validate" [(ngModel)]="skill.rate">
+                <label for="skill_hearts" class="active">Rate</label>
+            </div>
+            <div class="input-field col s4">
+                <button class="btn waves-effect waves-light btn-floating"
+                        style="margin-right: 10px"
+                        type="submit"
+                        name="action"
+                        (click)="deleteSkill(skill);showEditForm=[]">
+                    <i class="material-icons center">delete_forever</i>
+                </button>
+                <button class="btn waves-effect waves-light btn-floating"
+                        style="margin-right: 10px"
+                        type="submit"
+                        name="action"
+                        (click)="updateSkill(skill);showEditForm=[]">
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="input-field col s4">
-        <input id="skill_hearts" type="number" class="validate" [(ngModel)]="newSkill.rate">
-        <label for="skill_hearts" class="active">Rate</label>
-    </div>
-    <div class="input-field col s4">
-        <button class="btn waves-effect waves-light" type="submit" name="action" (click)="addSkill(newSkill)">New skill
+
+    <!-- Skills add btn -->
+    <div class="row" [ngClass]="{'hide':showNewBtn!=true}">
+        <button class="btn btn-floating waves-effect waves-light" type="submit" name="action" (click)="showNewForm=true;showNewBtn=false">
             <i class="material-icons right">add</i>
         </button>
     </div>
-</div>
 
-<div *ngFor="let skill of skills| async; index as i">
-    <div class="row" (mouseenter)="showEditBtn[i]=true" (mouseleave)="showEditBtn[i]=false" [ngClass]="{'hide':showEditForm[i]==true}">
-        <div class="col s8">
-            <div class="row">
-                <h6 class="col s10">{{skill.name}}</h6>
-                <h6 class="col s2 right-align">{{skill.rate}}%</h6>
-            </div>
-            <div class="progress">
-                <div class="determinate green" [style.width.%]="skill.rate"></div>
-            </div>
-        </div>
-        <div class="col s4" style="margin-top: 12px">
-            <button class="btn waves-effect waves-light btn-floating" [ngClass]="{'hide':showEditBtn[i]!=true}" (click)="showEditForm[i]=true">
-                <i class="material-icons right">edit</i>
-            </button>
-        </div>
-    </div>
-    <div class="row" [ngClass]="{'hide':showEditForm[i]!=true}">
+    <!-- Skills add form -->
+    <div class="row" [ngClass]="{'hide':showNewForm!=true}">
         <div class="input-field col s4">
-            <input id="skill_content" type="text" class="validate" [(ngModel)]="skill.name">
+            <input id="skill_content" type="text" class="validate" [(ngModel)]="newSkill.name">
             <label for="skill_content" class="active">Name</label>
         </div>
         <div class="input-field col s4">
-            <input id="skill_hearts" type="number" class="validate" [(ngModel)]="skill.rate">
+            <input id="skill_hearts" type="number" class="validate" [(ngModel)]="newSkill.rate">
             <label for="skill_hearts" class="active">Rate</label>
         </div>
         <div class="input-field col s4">
-            <button class="btn waves-effect waves-light btn-floating"
-                    style="margin-right: 10px"
+            <button class="btn btn-floating waves-effect waves-light"
                     type="submit"
                     name="action"
-                    (click)="deleteSkill(skill);showEditForm=[]">
-                <i class="material-icons center">delete_forever</i>
-            </button>
-            <button class="btn waves-effect waves-light btn-floating"
-                    style="margin-right: 10px"
-                    type="submit"
-                    name="action"
-                    (click)="updateSkill(skill);showEditForm=[]">
+                    (click)="addSkill(newSkill);showNewForm=false;">
                 <i class="material-icons right">send</i>
             </button>
         </div>
