@@ -25,7 +25,7 @@ export class SkillsComponent implements OnInit {
     showEditForm: array;
     showNewBtn: boolean;
     showNewForm: boolean;
-    
+
     constructor(private afs: AngularFirestore) { }
 
     /**
@@ -33,7 +33,7 @@ export class SkillsComponent implements OnInit {
     *
     */
     ngOnInit() {
-        this.skillsCollection = this.afs.collection<Skill>('skills');
+        this.skillsCollection = this.afs.collection<Skill>('skills', ref => ref.orderBy('rate', 'desc'));
         this.skills = this.skillsCollection.snapshotChanges().pipe(
             map(actions => actions.map(a => {
                 const data = a.payload.doc.data() as Skill;
