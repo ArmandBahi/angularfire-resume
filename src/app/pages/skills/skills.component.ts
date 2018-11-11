@@ -21,8 +21,8 @@ export class SkillsComponent implements OnInit {
     skillsDoc: AngularFirestoreDocument<Skill>;
     skills: Observable<Skill[]>;
     newSkill: object;
-    showEditBtn: array;
-    showEditForm: array;
+    showEditBtn;
+    showEditForm;
     showNewBtn: boolean;
     showNewForm: boolean;
 
