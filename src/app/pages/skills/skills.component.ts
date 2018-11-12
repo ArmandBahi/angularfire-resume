@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import Materialize from 'materialize-css'
 
-
 export interface Skill {
   name: string;
   rate: number;
