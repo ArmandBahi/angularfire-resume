@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+<<<<<<< HEAD
 import Materialize from 'materialize-css'
+=======
+import { Materialize } from 'materialize-css';
+>>>>>>> 295d6ab87f145d8d015359145b2a396e48cdb338
 
 export interface Note {
   content: string;
