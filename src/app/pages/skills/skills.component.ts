@@ -23,6 +23,7 @@ export class SkillsComponent implements OnInit {
     newSkill: object;
     showEditBtn;
     showEditForm;
+    showDescr;
     showNewBtn: boolean;
     showNewForm: boolean;
 
@@ -44,6 +45,7 @@ export class SkillsComponent implements OnInit {
         this.newSkill = {};
         this.showEditBtn = [];
         this.showEditForm = [];
+        this.showDescr = [];
         this.showNewBtn = false;
         this.showNewForm = false;
     }
@@ -71,6 +73,7 @@ export class SkillsComponent implements OnInit {
     * @param  {object} oSkill
     */
     updateSkill(oSkill) {
+        console.log("oSkill: ", oSkill);
         let skillDoc = this.afs.doc('skills/' + oSkill.id);
         skillDoc.update(oSkill).then(function() {
             Materialize.toast('Skill successfully updated', 3000, 'green');

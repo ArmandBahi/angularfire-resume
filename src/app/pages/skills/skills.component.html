@@ -7,13 +7,16 @@
 
         <!-- Skills display -->
         <div class="row" (mouseenter)="showEditBtn[i]=true" (mouseleave)="showEditBtn[i]=false" [ngClass]="{'hide':showEditForm[i]==true}">
-            <div class="col s8">
+            <div class="col s8 hoverable" (click)="showDescr[i] = !showDescr[i]">
                 <div class="row">
                     <h6 class="col s10">{{skill.name}}</h6>
                     <h6 class="col s2 right-align">{{skill.rate}}%</h6>
                 </div>
                 <div class="progress">
                     <div class="determinate green" [style.width.%]="skill.rate"></div>
+                </div>
+                <div class="row" [ngClass]="{'hide':showDescr[i]!=true}">
+                    {{skill.description}}
                 </div>
             </div>
             <div class="col s2" style="margin-top: 12px">
@@ -25,13 +28,19 @@
 
         <!-- Skills edit form -->
         <div class="row" [ngClass]="{'hide':showEditForm[i]!=true}">
-            <div class="input-field col s4">
-                <input id="skill_content" type="text" class="validate" [(ngModel)]="skill.name">
-                <label for="skill_content" class="active">Name</label>
-            </div>
-            <div class="input-field col s4">
-                <input id="skill_hearts" type="number" class="validate" [(ngModel)]="skill.rate">
-                <label for="skill_hearts" class="active">Rate</label>
+            <div class="input-field col s8">
+                <div class="input-field col s6">
+                    <input id="skill_content" type="text" class="validate" [(ngModel)]="skill.name">
+                    <label for="skill_content" class="active">Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="skill_hearts" type="number" class="validate" [(ngModel)]="skill.rate">
+                    <label for="skill_hearts" class="active">Rate</label>
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="skill_desrc" class="materialize-textarea" [(ngModel)]="skill.description"></textarea>
+                    <label for="skill_desrc" class="active">Description</label>
+                </div>
             </div>
             <div class="input-field col s4">
                 <button class="btn waves-effect waves-light btn-floating"
@@ -75,6 +84,10 @@
         <div class="input-field col s4">
             <input id="skill_hearts" type="number" class="validate" [(ngModel)]="newSkill.rate">
             <label for="skill_hearts" class="active">Rate</label>
+        </div>
+        <div class="input-field col s12">
+            <textarea id="skill_desrc" class="materialize-textarea" [(ngModel)]="newSkill.description"></textarea>
+            <label for="skill_desrc" class="active">Description</label>
         </div>
         <div class="input-field col s4">
             <button class="btn btn-floating waves-effect waves-light"

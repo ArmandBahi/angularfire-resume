@@ -1,0 +1,16 @@
+
+.skill-collapsible>li>.collapsible-header{
+    background-color: transparent;
+    border-bottom: none;
+    display: block;
+    // padding: inherit;
+}
+
+.skill-collapsible>li>.collapsible-body{
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.hoverable{
+    cursor: pointer;
+}
