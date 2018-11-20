@@ -15,6 +15,9 @@
                 <div class="progress">
                     <div class="determinate green" [style.width.%]="skill.rate"></div>
                 </div>
+                <div class="center-align" [ngClass]="{'hide':showDescr[i]==true || showEditBtn[i]!=true}">
+                    <i class="material-icons">keyboard_arrow_down</i>
+                </div>
                 <div class="row" [ngClass]="{'hide':showDescr[i]!=true}">
                     {{skill.description}}
                 </div>
